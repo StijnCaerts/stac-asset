@@ -46,7 +46,7 @@ class FilesystemClient(Client):
         """
         if stream is None:
             stream = False
-        if url.scheme:
+        if url.scheme and url.scheme != "file":
             raise ValueError(
                 "cannot read a file with the filesystem client if it has a url scheme: "
                 + str(url)
